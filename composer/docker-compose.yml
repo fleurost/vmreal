@@ -1,0 +1,11 @@
+version: '2'
+
+volumes:
+  orderer.aryastorage.com:
+
+services:
+  orderer.aryastorage.com:
+    extends:
+      file:   base/docker-compose-base.yaml
+      service: orderer.aryastorage.com
+    container_name: orderer.aryastorage.com
