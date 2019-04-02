@@ -202,3 +202,24 @@ Profiles:
                 - *Org2
             Capabilities:
                 <<: *ApplicationCapabilities
+    OneOrgsOrdererGenesis:
+        Capabilities:
+            <<: *ChannelCapabilities
+        Orderer:
+            <<: *OrdererDefaults
+            Organizations:
+                - *OrdererOrg
+            Capabilities:
+                <<: *OrdererCapabilities
+        Consortiums:
+            SampleConsortium:
+                Organizations:
+                    - *Org2
+    OneOrgsChannel:
+        Consortium: SampleConsortium
+        Application:
+            <<: *ApplicationDefaults
+            Organizations:
+                - *Org2
+            Capabilities:
+                <<: *ApplicationCapabilities
