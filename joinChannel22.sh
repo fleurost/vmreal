@@ -6,4 +6,4 @@ docker exec peer0.org2.aryastorage.com peer channel join -b composerchannel2.blo
 
 # Join peer1.org2.example.com to the channel.
 docker exec peer1.org2.aryastorage.com peer channel fetch config -o orderer.aryastorage.com:7050 -c composerchannel2 --tls --cafile /opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/ordererOrganizations/aryastorage.com/msp/tlscacerts/tlsca.aryastorage.com-cert.pem
-docker exec peer1.org2.aryastorage.com peer channel join -b composerchannel_config2.block
+docker exec peer1.org2.aryastorage.com peer channel join -b composerchannel2_config.block
