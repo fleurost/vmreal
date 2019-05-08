@@ -35,7 +35,7 @@ services:
     extra_hosts:
       - "peer0.org1.hospital.com:192.168.56.108"
       - "peer1.org1.hospital.com:192.168.56.108"
-      - "ca_peerJatim:192.168.56.108"
+      - "ca_peerOrg1:192.168.56.108"
       - "orderer.hospital.com:192.168.56.107"
     ports:
       - 9051:7051
