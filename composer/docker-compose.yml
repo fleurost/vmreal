@@ -1,11 +1,11 @@
 version: '2'
 
 volumes:
-  orderer.aryastorage.com:
+  orderer.hospital.com:
 
 services:
-  orderer.aryastorage.com:
+  orderer.hospital.com:
     extends:
       file:   base/docker-compose-base.yaml
-      service: orderer.aryastorage.com
-    container_name: orderer.aryastorage.com
+      service: orderer.hospital.com
+    container_name: orderer.hospital.com
