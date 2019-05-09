@@ -7,16 +7,16 @@ volumes:
 services:
 
   ca1:
-    image: hyperledger/fabric-ca
+    image: hyperledger/fabric-ca:1.2.1
     environment:
       - FABRIC_CA_HOME=/etc/hyperledger/fabric-ca-server
       - FABRIC_CA_SERVER_CA_NAME=ca-org2
       - FABRIC_CA_SERVER_TLS_ENABLED=true
       - FABRIC_CA_SERVER_TLS_CERTFILE=/etc/hyperledger/fabric-ca-server-config/ca.org2.hospital.com-cert.pem
-      - FABRIC_CA_SERVER_TLS_KEYFILE=/etc/hyperledger/fabric-ca-server-config/e70321741ebd2718fab82e0b4bbce6dc3cf6510ca7e74b6d58ef1fd61a6f3dac_sk
+      - FABRIC_CA_SERVER_TLS_KEYFILE=/etc/hyperledger/fabric-ca-server-config/ac54d136da83960fe214b2bce392b99043f2859e0a0866e3fd9e9cbb5ad58868_sk
     ports:
       - "8054:7054"
-    command: sh -c 'fabric-ca-server start --ca.certfile /etc/hyperledger/fabric-ca-server-config/ca.org2.hospital.com-cert.pem --ca.keyfile /etc/hyperledger/fabric-ca-server-config/e70321741ebd2718fab82e0b4bbce6dc3cf6510ca7e74b6d58ef1fd61a6f3dac_sk -b admin:adminpw -d'
+    command: sh -c 'fabric-ca-server start --ca.certfile /etc/hyperledger/fabric-ca-server-config/ca.org2.hospital.com-cert.pem --ca.keyfile /etc/hyperledger/fabric-ca-server-config/ac54d136da83960fe214b2bce392b99043f2859e0a0866e3fd9e9cbb5ad58868_sk -b admin:adminpw -d'
     volumes:
       - ./crypto-config/peerOrganizations/org2.hospital.com/ca/:/etc/hyperledger/fabric-ca-server-config
     container_name: ca_peerOrg2
