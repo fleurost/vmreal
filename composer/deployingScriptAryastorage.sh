@@ -46,7 +46,7 @@ cat << EOF > ./byfn-network-org1.json
 		}
 	},
     "channels": {
-        "composerchannel": {
+        "rschannel": {
             "orderers": [
                 "orderer.hospital.com"
             ],
@@ -188,7 +188,7 @@ cat << EOF > ./byfn-network-org2.json
 		}
 	},
     "channels": {
-        "composerchannel": {
+        "rschannel": {
             "orderers": [
                 "orderer.hospital.com"
             ],
