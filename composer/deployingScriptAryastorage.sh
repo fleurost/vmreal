@@ -37,11 +37,11 @@ cat << EOF > ./byfn-network-org1.json
 		"connection": {
 			"timeout": {
 				"peer": {
-					"endorser": "3000",
-					"eventHub": "3000",
-					"eventReg": "3000"
+					"endorser": "2100",
+					"eventHub": "2100",
+					"eventReg": "2100"
 				},
-				"orderer": "3000"
+				"orderer": "2100"
 			}
 		}
 	},
@@ -75,7 +75,7 @@ cat << EOF > ./byfn-network-org1.json
         }
     },
     "organizations": {
-        "Org1": {
+        "org1": {
             "mspid": "Org1MSP",
             "peers": [
                 "peer0.org1.hospital.com",
@@ -85,7 +85,7 @@ cat << EOF > ./byfn-network-org1.json
                 "ca.org1.hospital.com"
             ]
         },
-        "Org2": {
+        "org2": {
             "mspid": "Org2MSP",
             "peers": [
                 "peer0.org2.hospital.com",
@@ -175,15 +175,15 @@ cat << EOF > ./byfn-network-org2.json
     "x-type": "hlfv1",
     "version": "1.0.0",
 	"client": {
-		"organization": "Org2",
+		"organization": "org2",
 		"connection": {
 			"timeout": {
 				"peer": {
-					"endorser": "3000",
-					"eventHub": "3000",
-					"eventReg": "3000"
+					"endorser": "2100",
+					"eventHub": "2100",
+					"eventReg": "2100"
 				},
-				"orderer": "3000"
+				"orderer": "2100"
 			}
 		}
 	},
@@ -217,7 +217,7 @@ cat << EOF > ./byfn-network-org2.json
         }
     },
     "organizations": {
-        "Org1": {
+        "org1": {
             "mspid": "Org1MSP",
             "peers": [
                 "peer0.org1.hospital.com",
@@ -227,7 +227,7 @@ cat << EOF > ./byfn-network-org2.json
                 "ca.org1.hospital.com"
             ]
         },
-        "Org2": {
+        "org2": {
             "mspid": "Org2MSP",
             "peers": [
                 "peer0.org2.hospital.com",
