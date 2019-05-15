@@ -37,11 +37,11 @@ cat << EOF > ./byfn-network-org1.json
 		"connection": {
 			"timeout": {
 				"peer": {
-					"endorser": "2100",
-					"eventHub": "2100",
-					"eventReg": "2100"
+					"endorser": "3000",
+					"eventHub": "3000",
+					"eventReg": "3000"
 				},
-				"orderer": "2100"
+				"orderer": "3000"
 			}
 		}
 	},
@@ -179,11 +179,11 @@ cat << EOF > ./byfn-network-org2.json
 		"connection": {
 			"timeout": {
 				"peer": {
-					"endorser": "2100",
-					"eventHub": "2100",
-					"eventReg": "2100"
+					"endorser": "3000",
+					"eventHub": "3000",
+					"eventReg": "3000"
 				},
-				"orderer": "2100"
+				"orderer": "3000"
 			}
 		}
 	},
