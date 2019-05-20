@@ -6,7 +6,7 @@ fi
 VERSION=$1
 ORDERER_HOST=192.168.56.107
 ORG1_HOST=192.168.56.108
-ORG2_HOST=192.168.56.109
+ORG2_HOST=192.168.56.110
 
 composer card delete -c PeerAdmin@byfn-network-org2
 composer card delete -c PeerAdmin@byfn-network-org1
@@ -33,7 +33,7 @@ cat << EOF > ./byfn-network-org1.json
     "x-type": "hlfv1",
     "version": "1.0.0",
 	"client": {
-		"organization": "Org1",
+		"organization": "org1",
 		"connection": {
 			"timeout": {
 				"peer": {

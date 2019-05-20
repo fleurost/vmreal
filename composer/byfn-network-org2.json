@@ -3,15 +3,15 @@
     "x-type": "hlfv1",
     "version": "1.0.0",
 	"client": {
-		"organization": "Org2",
+		"organization": "org2",
 		"connection": {
 			"timeout": {
 				"peer": {
-					"endorser": "3000",
-					"eventHub": "3000",
-					"eventReg": "3000"
+					"endorser": "2100",
+					"eventHub": "2100",
+					"eventReg": "2100"
 				},
-				"orderer": "3000"
+				"orderer": "2100"
 			}
 		}
 	},
@@ -45,7 +45,7 @@
         }
     },
     "organizations": {
-        "Org1": {
+        "org1": {
             "mspid": "Org1MSP",
             "peers": [
                 "peer0.org1.hospital.com",
@@ -55,7 +55,7 @@
                 "ca.org1.hospital.com"
             ]
         },
-        "Org2": {
+        "org2": {
             "mspid": "Org2MSP",
             "peers": [
                 "peer0.org2.hospital.com",
@@ -99,8 +99,8 @@
             }
         },
         "peer0.org2.hospital.com": {
-            "url": "grpcs://192.168.56.109:9051",
-						"eventUrl": "grpc://192.168.56.109:9053",
+            "url": "grpcs://192.168.56.110:9051",
+						"eventUrl": "grpc://192.168.56.110:9053",
             "grpcOptions": {
                 "ssl-target-name-override": "peer0.org2.hospital.com"
             },
@@ -109,8 +109,8 @@
             }
         },
         "peer1.org2.hospital.com": {
-            "url": "grpcs://192.168.56.109:10051",
-						"eventUrl": "grpc://192.168.56.109:10053",
+            "url": "grpcs://192.168.56.110:10051",
+						"eventUrl": "grpc://192.168.56.110:10053",
             "grpcOptions": {
                 "ssl-target-name-override": "peer1.org2.hospital.com"
             },
@@ -128,7 +128,7 @@
             }
         },
         "ca.org2.hospital.com": {
-            "url": "https://192.168.56.109:8054",
+            "url": "https://192.168.56.110:8054",
             "caName": "ca-org2",
             "httpOptions": {
                 "verify": false

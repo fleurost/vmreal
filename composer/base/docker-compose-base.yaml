@@ -28,9 +28,9 @@ services:
     extra_hosts:
       - "peer0.org1.hospital.com:192.168.56.108"
       - "peer1.org1.hospital.com:192.168.56.108"
-      - "peer0.org2.hospital.com:192.168.56.109"
-      - "peer1.org2.hospital.com:192.168.56.109"
+      - "peer0.org2.hospital.com:192.168.56.110"
+      - "peer1.org2.hospital.com:192.168.56.110"
       - "ca_peerOrg1:192.168.56.108"
-      - "ca_peerOrg2:192.168.56.109"
+      - "ca_peerOrg2:192.168.56.110"
     ports:
       - 7050:7050
