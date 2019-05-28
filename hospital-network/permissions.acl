@@ -48,9 +48,9 @@ rule PetugasToDokter {
 }
 
 rule PetugasToData {
-    description: "Grant business network Petugas read access to Data"
+    description: "Grant business network Petugas full access to Data"
     participant: "org.hospital.record.Petugas"
-    operation: READ
+    operation: ALL
     resource: "org.hospital.record.DataMedis"
     action: ALLOW
 }
@@ -63,19 +63,19 @@ rule PetugasToPasien {
     action: ALLOW
 }
 
-rule PetugasToCreateData {
-    description: "Grant business network Petugas create access to Data"
+rule PetugasToUpdateDataMedis {
+    description: "Grant business network Petugas update access to Data Medis"
     participant: "org.hospital.record.Petugas"
     operation: CREATE
-    resource: "org.hospital.record.DataMedis"
+    resource: "org.hospital.record.UpdateDataMedis"
     action: ALLOW
 }
 
-rule PetugasToUpdateData {
-    description: "Grant business network Petugas update access to Data"
+rule PetugasToUpdateDataPasien {
+    description: "Grant business network Petugas update access to Data Pasien"
     participant: "org.hospital.record.Petugas"
-    operation: READ
-    resource: "org.hospital.record.DataMedis"
+    operation: CREATE
+    resource: "org.hospital.record.UpdateDataPasien"
     action: ALLOW
 }
 

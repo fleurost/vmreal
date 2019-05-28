@@ -18,50 +18,12 @@
  */
 
 /**
- * Create Data Medis
- * @param {org.hospital.record.CreateData} tx
- * @transaction
- */
-
-async function CreateData(tx) {
-    const factory = getFactory();
-    let newData = factory.newResource('org.hospital.record', 'DataMedis', tx.noRekMedis);
-
-    newData.pasien = tx.pasien;
-    newData.dokter = tx.dokter;
-    newData.tglMasuk = tx.tglMasuk;
-    newData.tglKeluar = tx.tglKeluar;
-    newData.alasanMasuk = tx.alasanMasuk;
-    newData.rujukan = tx.rujukan;
-    newData.anamnesis = tx.anamnesis;
-    newData.pemeriksaanFisik = tx.pemeriksaanFisik;
-    newData.riwayatAlergi = tx.riwayatAlergi;
-    newData.diagnosaPrimer = tx.diagnosaPrimer;
-    newData.diagnosaSekunder = tx.diagnosaSekunder;
-    newData.terapiDiRs = tx.terapiDiRs;
-    newData.tindakan = tx.tindakan;
-    newData.prognosaPenyakit = tx.prognosaPenyakit;
-    newData.alasanPulang = tx.alasanPulang;
-    newData.kondisiSaatPulang = tx.kondisiSaatPulang;
-    newData.rencanaTindakLanjut = tx.rencanaTindakLanjut;
-
-    return getAssetRegistry('org.hospital.record.DataMedis')
-        .then(function(dataRegistry){
-            return dataRegistry.add(newData);
-        })
-        .catch(function(error){
-            console.log(error);
-        })
-}
-
-/**
  * Update Data Medis
- * @param {org.hospital.record.UpdateData} tx
+ * @param {org.hospital.record.UpdateDataMedis} tx
  * @transaction
  */
-async function UpdateData(tx) {
-    tx.datamedis.pasien = tx.newPasien;
-    tx.datamedis.dokter = tx.newDokter;
+async function UpdateDataMedis(tx) {
+
     tx.datamedis.tglMasuk = tx.newTglMasuk;
     tx.datamedis.tglKeluar = tx.newTglKeluar;
     tx.datamedis.alasanMasuk = tx.newAlasanMasuk;
@@ -79,8 +41,32 @@ async function UpdateData(tx) {
     tx.datamedis.rencanaTindakLanjut = tx.newRencanaTindakLanjut;
 
     return getAssetRegistry('org.hospital.record.DataMedis')
-        .then(function(dataRegistry){
+        .then(function(assetRegistry){
             return assetRegistry.update(tx.datamedis);
+        })
+        .catch(function(error){
+            console.log(error);
+        })
+}
+
+/**
+ * Update Data Pasien
+ * @param {org.hospital.record.UpdateDataPasien} tx
+ * @transaction
+ */
+async function UpdateDataPasien(tx) {
+
+    tx.pasien.namaLengkap = tx.newNamaLengkap;
+    tx.pasien.tempatTglLahir = tx.newTempatTglLahir;
+    tx.pasien.jenisKelamin = tx.newJenisKelamin;
+    tx.pasien.umur = tx.newUmur;
+    tx.pasien.alamat = tx.newAlamat;
+    tx.pasien.statusPernikahan = tx.newStatusPernikahan;
+    tx.pasien.goldar = tx.newGoldar;
+
+    return getAssetRegistry('org.hospital.record.Pasien')
+        .then(function(assetRegistry){
+            return assetRegistry.update(tx.pasien);
         })
         .catch(function(error){
             console.log(error);

@@ -68,31 +68,8 @@ asset DataMedis identified by noRekMedis {
   o String rencanaTindakLanjut
 }
 
-transaction CreateData {
-  o String noRekMedis
-  --> Pasien pasien
-  --> Dokter dokter
-  o String tglMasuk
-  o String tglKeluar
-  o String alasanMasuk
-  o String rujukan
-  o String anamnesis
-  o String pemeriksaanFisik
-  o String riwayatAlergi
-  o String diagnosaPrimer
-  o String diagnosaSekunder
-  o String terapiDiRs
-  o String tindakan
-  o String prognosaPenyakit
-  o String alasanPulang
-  o String kondisiSaatPulang
-  o String rencanaTindakLanjut
-}
-
-transaction UpdateData {
-  -->DataMedis datamedis
-  -->Pasien newPasien
-  -->Dokter newDokter
+transaction UpdateDataMedis {
+  --> DataMedis datamedis
   o String newTglMasuk
   o String newTglKeluar
   o String newAlasanMasuk
@@ -108,4 +85,15 @@ transaction UpdateData {
   o String newAlasanPulang
   o String newKondisiSaatPulang
   o String newRencanaTindakLanjut
+}
+
+transaction UpdateDataPasien {
+  --> Pasien pasien
+  o String newNamaLengkap
+  o String newTempatTglLahir
+  o String newJenisKelamin
+  o String newUmur
+  o String newAlamat
+  o String newStatusPernikahan
+  o String newGoldar
 }
