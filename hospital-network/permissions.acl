@@ -31,6 +31,15 @@ rule NetworkAdminSystem {
     action: ALLOW
 }
 
+rule NetworkAdminToDataSensor {
+    description: "Grant business network administrators full access to Data Sensor"
+    participant: "org.hyperledger.composer.system.NetworkAdmin"
+    operation: ALL
+    resource: "org.hospital.record.DataSensor"
+    action: ALLOW
+}
+
+/*
 rule NetworkAdminToPetugas {
     description: "Grant business network administrators full access to Petugas"
     participant: "org.hyperledger.composer.system.NetworkAdmin"
@@ -94,3 +103,4 @@ rule DokterToPasien {
     resource: "org.hospital.record.Pasien"
     action: ALLOW
 }
+*/

@@ -18,6 +18,7 @@
 
 namespace org.hospital.record
 
+/**
 participant Petugas identified by nik {
   o String nik
   o String namaLengkap
@@ -96,4 +97,14 @@ transaction UpdateDataPasien {
   o String newAlamat
   o String newStatusPernikahan
   o String newGoldar
+}
+
+*/
+
+asset DataSensor identified by idDataSensor {
+  o String idDataSensor
+  o String idSensor
+  o String brightness
+  o String temperature
+  o String humidity
 }
