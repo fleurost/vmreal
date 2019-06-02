@@ -15,6 +15,7 @@
 /**
  * Sample access control list.
  */
+
 rule SystemACL {
   description:  "System ACL to permit all access"
   participant: "org.hyperledger.composer.system.Participant"
@@ -39,12 +40,46 @@ rule NetworkAdminToDataSensor {
     action: ALLOW
 }
 
-/*
+rule NetworkAdminToGateway {
+    description: "Grant business network administrators full access to Data Sensor"
+    participant: "org.hyperledger.composer.system.NetworkAdmin"
+    operation: ALL
+    resource: "org.hospital.record.Gateway"
+    action: ALLOW
+}
+
+rule GatewayToDataSensor {
+    description: "Grant business network administrators full access to Data Sensor"
+    participant: "org.hospital.record.Gateway"
+    operation: ALL
+    resource: "org.hospital.record.DataSensor"
+    action: ALLOW
+}
+
+
+/**
+
 rule NetworkAdminToPetugas {
     description: "Grant business network administrators full access to Petugas"
     participant: "org.hyperledger.composer.system.NetworkAdmin"
     operation: ALL
     resource: "org.hospital.record.Petugas"
+    action: ALLOW
+}
+
+rule NetworkAdminToDokter {
+    description: "Grant business network administrators full access to Petugas"
+    participant: "org.hyperledger.composer.system.NetworkAdmin"
+    operation: ALL
+    resource: "org.hospital.record.Dokter"
+    action: ALLOW
+}
+
+rule NetworkAdminToPasien {
+    description: "Grant business network administrators full access to Petugas"
+    participant: "org.hyperledger.composer.system.NetworkAdmin"
+    operation: ALL
+    resource: "org.hospital.record.Pasien"
     action: ALLOW
 }
 
@@ -72,6 +107,7 @@ rule PetugasToPasien {
     action: ALLOW
 }
 
+
 rule PetugasToUpdateDataMedis {
     description: "Grant business network Petugas update access to Data Medis"
     participant: "org.hospital.record.Petugas"
@@ -88,6 +124,7 @@ rule PetugasToUpdateDataPasien {
     action: ALLOW
 }
 
+
 rule DokterToData {
     description: "Grant business network Dokter read access to Data"
     participant: "org.hospital.record.Dokter"
@@ -103,4 +140,5 @@ rule DokterToPasien {
     resource: "org.hospital.record.Pasien"
     action: ALLOW
 }
+
 */

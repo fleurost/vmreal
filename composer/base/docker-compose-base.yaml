@@ -26,11 +26,11 @@ services:
       - ../crypto-config/ordererOrganizations/hospital.com/orderers/orderer.hospital.com/tls/:/var/hyperledger/orderer/tls
       - orderer.hospital.com:/var/hyperledger/production/orderer
     extra_hosts:
-      - "peer0.org1.hospital.com:192.168.100.17"
-      - "peer1.org1.hospital.com:192.168.100.17"
-      - "peer0.org2.hospital.com:192.168.100.19"
-      - "peer1.org2.hospital.com:192.168.100.19"
-      - "ca_peerOrg1:192.168.100.17"
-      - "ca_peerOrg2:192.168.100.19"
+      - "peer0.org1.hospital.com:192.168.1.17"
+      - "peer1.org1.hospital.com:192.168.1.17"
+      - "peer0.org2.hospital.com:192.168.1.19"
+      - "peer1.org2.hospital.com:192.168.1.19"
+      - "ca_peerOrg1:192.168.1.17"
+      - "ca_peerOrg2:192.168.1.19"
     ports:
       - 7050:7050
