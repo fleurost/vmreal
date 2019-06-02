@@ -19,7 +19,7 @@
 namespace org.hospital.record
 
 
-/**
+
 participant Petugas identified by nik {
   o String nik
   o String namaLengkap
@@ -70,7 +70,7 @@ asset DataMedis identified by noRekMedis {
   o String rencanaTindakLanjut
 }
 
-
+/**
 transaction UpdateDataMedis {
   --> DataMedis datamedis
   o String newTglMasuk
@@ -100,7 +100,6 @@ transaction UpdateDataPasien {
   o String newStatusPernikahan
   o String newGoldar
 }
-*/
 
 asset DataSensor identified by idDataSensor {
   o String idDataSensor
@@ -113,4 +112,4 @@ asset DataSensor identified by idDataSensor {
 participant Gateway identified by idGateway {
   o String idGateway
 }
-
+*/

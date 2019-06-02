@@ -32,6 +32,7 @@ rule NetworkAdminSystem {
     action: ALLOW
 }
 
+/**
 rule NetworkAdminToDataSensor {
     description: "Grant business network administrators full access to Data Sensor"
     participant: "org.hyperledger.composer.system.NetworkAdmin"
@@ -55,9 +56,7 @@ rule GatewayToDataSensor {
     resource: "org.hospital.record.DataSensor"
     action: ALLOW
 }
-
-
-/**
+*/
 
 rule NetworkAdminToPetugas {
     description: "Grant business network administrators full access to Petugas"
@@ -107,7 +106,7 @@ rule PetugasToPasien {
     action: ALLOW
 }
 
-
+/**
 rule PetugasToUpdateDataMedis {
     description: "Grant business network Petugas update access to Data Medis"
     participant: "org.hospital.record.Petugas"
@@ -123,7 +122,7 @@ rule PetugasToUpdateDataPasien {
     resource: "org.hospital.record.UpdateDataPasien"
     action: ALLOW
 }
-
+*/
 
 rule DokterToData {
     description: "Grant business network Dokter read access to Data"
@@ -140,5 +139,3 @@ rule DokterToPasien {
     resource: "org.hospital.record.Pasien"
     action: ALLOW
 }
-
-*/

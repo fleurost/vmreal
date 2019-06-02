@@ -1,0 +1,204 @@
+================================================================================
+==== Node Report ===============================================================
+
+Event: exception, location: "OnUncaughtException"
+Filename: node-report.20190602.231346.5070.001.txt
+Dump event time:  2019/06/02 23:13:46
+Module load time: 2019/06/02 22:56:37
+Process ID: 5070
+Command line: node /home/wan/.nvm/versions/node/v8.16.0/bin/composer network start -c PeerAdmin@byfn-network-org1 -n hospital-network -V 0.0.12 -o endorsementPolicyFile=./endorsement-policy.json -A alice -C alice/admin-pub.pem -A bob -C bob/admin-pub.pem 
+
+Node.js version: v8.16.0
+(http_parser: 2.8.0, v8: 6.2.414.77, uv: 1.23.2, zlib: 1.2.11, ares: 1.10.1-DEV,
+ modules: 57, nghttp2: 1.33.0, napi: 4, openssl: 1.0.2r, icu: 60.1, unicode: 10.0,
+ cldr: 32.0, tz: 2017c)
+
+node-report version: 2.2.1 (built against Node.js v8.16.0, glibc 2.27, 64 bit)
+
+OS version: Linux 4.15.0-29-generic #31-Ubuntu SMP Tue Jul 17 15:39:52 UTC 2018
+(glibc: 2.27)
+
+Machine: wan x86_64
+
+================================================================================
+==== JavaScript Stack Trace ====================================================
+
+WriteStream.emit (events.js:183:7)
+onwriteError (_stream_writable.js:417:12)
+onwrite (_stream_writable.js:439:5)
+_destroy (internal/streams/destroy.js:39:7)
+WriteStream.Socket._destroy (net.js:568:3)
+WriteStream.destroy (internal/streams/destroy.js:32:8)
+WriteWrap.afterWrite [as oncomplete] (net.js:870:10)
+
+================================================================================
+==== Native Stack Trace ========================================================
+
+ 0: [pc=0x7f4de1c8609b] nodereport::OnUncaughtException(v8::Isolate*) [/home/wan/.nvm/versions/node/v8.16.0/lib/node_modules/composer-cli/node_modules/node-report/api.node]
+ 1: [pc=0xeb13e2] v8::internal::Isolate::Throw(v8::internal::Object*, v8::internal::MessageLocation*) [node]
+ 2: [pc=0x102acdd] v8::internal::Runtime_Throw(int, v8::internal::Object**, v8::internal::Isolate*) [node]
+ 3: [pc=0x11d6867042fd] 
+
+================================================================================
+==== JavaScript Heap and Garbage Collector =====================================
+
+Heap space name: new_space
+    Memory size: 1,048,576 bytes, committed memory: 155,824 bytes
+    Capacity: 1,031,168 bytes, used: 138,416 bytes, available: 892,752 bytes
+Heap space name: old_space
+    Memory size: 34,926,592 bytes, committed memory: 34,833,856 bytes
+    Capacity: 32,911,088 bytes, used: 32,293,136 bytes, available: 617,952 bytes
+Heap space name: code_space
+    Memory size: 2,097,152 bytes, committed memory: 1,702,592 bytes
+    Capacity: 1,786,912 bytes, used: 1,513,248 bytes, available: 273,664 bytes
+Heap space name: map_space
+    Memory size: 5,263,360 bytes, committed memory: 5,030,256 bytes
+    Capacity: 5,167,528 bytes, used: 1,469,248 bytes, available: 3,698,280 bytes
+Heap space name: large_object_space
+    Memory size: 2,822,144 bytes, committed memory: 2,822,144 bytes
+    Capacity: 1,456,075,784 bytes, used: 2,778,632 bytes, available: 1,453,297,152 bytes
+
+Total heap memory size: 46,157,824 bytes
+Total heap committed memory: 44,544,672 bytes
+Total used heap memory: 38,192,680 bytes
+Total available heap memory: 1,458,779,800 bytes
+
+Heap memory limit: 1,501,560,832
+
+================================================================================
+==== Resource Usage ============================================================
+
+Process total resource usage:
+  User mode CPU: 2.004763 secs
+  Kernel mode CPU: 0.101339 secs
+  Average CPU Consumption : 0.204476%
+  Maximum resident set size: 129,363,968 bytes
+  Page faults: 936 (I/O required) 44846 (no I/O required)
+  Filesystem activity: 36456 reads 16 writes
+
+Event loop thread resource usage:
+  User mode CPU: 1.693564 secs
+  Kernel mode CPU: 0.094086 secs
+  Average CPU Consumption : 0.173558%
+  Filesystem activity: 36456 reads 16 writes
+
+================================================================================
+==== Node.js libuv Handle Summary ==============================================
+
+(Flags: R=Ref, A=Active)
+Flags  Type      Address             Details
+[-A]   async     0x0000000003bd3060  
+[--]   check     0x00007fff10fbae30  
+[R-]   idle      0x00007fff10fbaea8  
+[--]   prepare   0x00007fff10fbaf20  
+[--]   check     0x00007fff10fbaf98  
+[-A]   async     0x0000000002186780  
+[R-]   timer     0x0000000003c01000  repeat: 0, timeout expired: 14249518 ms ago
+[R-]   tty       0x0000000003bdb938  , file descriptor: 9, write queue size: 0, readable, writable
+[-A]   signal    0x0000000003c010f0  signum: 28 (SIGWINCH)
+[R-]   tty       0x0000000003c01248  , write queue size: 0
+[-A]   async     0x00007f4de1e8ece0  
+[-A]   signal    0x0000000003c169e0  signum: 6 (SIGABRT)
+[-A]   signal    0x0000000003c6e6a0  signum: 14 (SIGALRM)
+[-A]   signal    0x0000000003cc15f0  signum: 1 (SIGHUP)
+[-A]   signal    0x0000000003cc16e0  signum: 2 (SIGINT)
+[-A]   signal    0x0000000003cc11b0  signum: 15 (SIGTERM)
+[-A]   signal    0x0000000003cc12a0  signum: 26 (SIGVTALRM)
+[-A]   signal    0x0000000003cb8d80  signum: 24 (SIGXCPU)
+[-A]   signal    0x0000000003cb8e70  signum: 25 (SIGXFSZ)
+[-A]   signal    0x0000000003cbafb0  signum: 12 (SIGUSR2)
+[-A]   signal    0x0000000003cbb0a0  signum: 5 (SIGTRAP)
+[-A]   signal    0x0000000003cbf630  signum: 31 (SIGSYS)
+[-A]   signal    0x0000000003cbf720  signum: 3 (SIGQUIT)
+[-A]   signal    0x0000000003cbd400  signum: 6 (SIGABRT)
+[-A]   signal    0x0000000003cbd4f0  signum: 29 (SIGIO)
+[-A]   signal    0x0000000003ce4d40  signum: 29 (SIGIO)
+[-A]   signal    0x0000000003ce4e30  signum: 30 (SIGPWR)
+[-A]   signal    0x0000000003caacd0  signum: 16 (SIGSTKFLT)
+[-A]   signal    0x0000000003caadc0  signum: 31 (SIGSYS)
+[RA]   timer     0x0000000003caa740  repeat: 0, timeout in: 63 ms
+[R-]   timer     0x00007f4dd8000e70  repeat: 0, timeout expired: 1026463 ms ago
+[-A]   async     0x00007f4de0475a58  
+[R-]   timer     0x0000000003c04340  repeat: 0, timeout in: 8389754676350998342 ms
+[RA]   prepare   0x00007f4de0475980  
+[R-]   timer     0x00007f4dd8004900  repeat: 0, timeout in: 10456626 ms
+[-A]   tcp       0x0000000003cb6be0  wan:45194 connected to wan:7051, send buffer size: 87040, recv buffer size: 1061808, file descriptor: 12, write queue size: 0, readable, writable
+[-A]   tcp       0x0000000003cc52b0  wan:53996 connected to wan:8051, send buffer size: 87040, recv buffer size: 1061808, file descriptor: 13, write queue size: 0, readable, writable
+[-A]   tcp       0x0000000003c93ae0  wan:34506 connected to 192.168.0.119:9051, send buffer size: 87040, recv buffer size: 372480, file descriptor: 14, write queue size: 0, readable, writable
+[-A]   tcp       0x0000000003c926f0  wan:49422 connected to 192.168.0.119:10051, send buffer size: 87040, recv buffer size: 372480, file descriptor: 15, write queue size: 0, readable, writable
+[--]   timer     0x0000000003ccd710  repeat: 0, timeout expired: 666630 ms ago
+[--]   timer     0x0000000003c66450  repeat: 0, timeout expired: 666630 ms ago
+[--]   timer     0x0000000003c9f910  repeat: 0, timeout expired: 666625 ms ago
+[--]   timer     0x0000000003c79c40  repeat: 0, timeout expired: 666604 ms ago
+[-A]   tcp       0x0000000003cb1be0  wan:45202 connected to wan:7051, send buffer size: 87040, recv buffer size: 1061808, file descriptor: 16, write queue size: 0, readable, writable
+[RA]   timer     0x0000000003dfb1d0  repeat: 0, timeout in: 1073509 ms
+[-A]   tcp       0x0000000003dc3c50  wan:54004 connected to wan:8051, send buffer size: 87040, recv buffer size: 1061808, file descriptor: 17, write queue size: 0, readable, writable
+[-A]   tcp       0x0000000003defb30  wan:34514 connected to 192.168.0.119:9051, send buffer size: 87040, recv buffer size: 372480, file descriptor: 18, write queue size: 0, readable, writable
+[-A]   tcp       0x0000000003e1dd70  wan:49430 connected to 192.168.0.119:10051, send buffer size: 87040, recv buffer size: 372480, file descriptor: 19, write queue size: 0, readable, writable
+[--]   timer     0x00007f4ddc0051f0  repeat: 0, timeout expired: 942577 ms ago
+[-A]   timer     0x00007f4dd8007ee0  repeat: 0, timeout in: 5000 ms
+[-A]   timer     0x0000000003e7d360  repeat: 0, timeout in: 360000 ms
+[-A]   timer     0x0000000003e1d760  repeat: 0, timeout in: 360000 ms
+[-A]   timer     0x00007f4dd8006820  repeat: 0, timeout in: 360000 ms
+[-A]   timer     0x0000000003e222c0  repeat: 0, timeout in: 360000 ms
+
+================================================================================
+==== System Information ========================================================
+
+Environment variables
+  NVM_DIR=/home/wan/.nvm
+  LS_COLORS=rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:
+  SSH_CONNECTION=192.168.0.15 50508 192.168.0.117 22
+  LESSCLOSE=/usr/bin/lesspipe %s %s
+  LANG=en_US.UTF-8
+  OLDPWD=/home/wan/jos2
+  NVM_CD_FLAGS=
+  XDG_SESSION_ID=7
+  USER=wan
+  PWD=/home/wan/jos2/composer
+  HOME=/home/wan
+  SSH_CLIENT=192.168.0.15 50508 22
+  XDG_DATA_DIRS=/usr/local/share:/usr/share:/var/lib/snapd/desktop
+  SSH_TTY=/dev/pts/0
+  MAIL=/var/mail/wan
+  SHELL=/bin/bash
+  TERM=xterm
+  NVM_BIN=/home/wan/.nvm/versions/node/v8.16.0/bin
+  SHLVL=2
+  LOGNAME=wan
+  XDG_RUNTIME_DIR=/run/user/1000
+  PATH=/home/wan/.nvm/versions/node/v8.16.0/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
+  LESSOPEN=| /usr/bin/lesspipe %s
+  _=/home/wan/.nvm/versions/node/v8.16.0/bin/composer
+  SUPPRESS_NO_CONFIG_WARNING=y
+  GRPC_SSL_CIPHER_SUITES=ECDHE-RSA-AES128-GCM-SHA256:ECDHE-RSA-AES128-SHA256:ECDHE-RSA-AES256-SHA384:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES128-SHA256:ECDHE-ECDSA-AES256-SHA384:ECDHE-ECDSA-AES256-GCM-SHA384
+
+Resource limits                        soft limit      hard limit
+  core file size (blocks)                       0       unlimited
+  data seg size (kbytes)                unlimited       unlimited
+  file size (blocks)                    unlimited       unlimited
+  max locked memory (bytes)              16777216        16777216
+  max memory size (kbytes)              unlimited       unlimited
+  open files                              1048576         1048576
+  stack size (bytes)                      8388608       unlimited
+  cpu time (seconds)                    unlimited       unlimited
+  max user processes                         3706            3706
+  virtual memory (kbytes)               unlimited       unlimited
+
+Loaded libraries
+  linux-vdso.so.1
+  /lib/x86_64-linux-gnu/libdl.so.2
+  /lib/x86_64-linux-gnu/librt.so.1
+  /usr/lib/x86_64-linux-gnu/libstdc++.so.6
+  /lib/x86_64-linux-gnu/libm.so.6
+  /lib/x86_64-linux-gnu/libgcc_s.so.1
+  /lib/x86_64-linux-gnu/libpthread.so.0
+  /lib/x86_64-linux-gnu/libc.so.6
+  /lib64/ld-linux-x86-64.so.2
+  /home/wan/.nvm/versions/node/v8.16.0/lib/node_modules/composer-cli/node_modules/node-report/api.node
+  /home/wan/.nvm/versions/node/v8.16.0/lib/node_modules/composer-cli/node_modules/grpc/src/node/extension_binary/node-v57-linux-x64-glibc/grpc_node.node
+  /lib/x86_64-linux-gnu/libnss_files.so.2
+  /lib/x86_64-linux-gnu/libnss_dns.so.2
+  /lib/x86_64-linux-gnu/libresolv.so.2
+
+================================================================================
