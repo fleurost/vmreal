@@ -4,9 +4,9 @@ if [ -z ${1} ]; then
 fi
 
 VERSION=$1
-ORDERER_HOST=192.168.1.15
-ORG1_HOST=192.168.1.17
-ORG2_HOST=192.168.1.19
+ORDERER_HOST=192.168.0.115
+ORG1_HOST=192.168.0.117
+ORG2_HOST=192.168.0.119
 
 composer card delete -c PeerAdmin@byfn-network-org2
 composer card delete -c PeerAdmin@byfn-network-org1
