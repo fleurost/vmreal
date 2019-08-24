@@ -17,65 +17,109 @@
  * Write your transction processor functions here
  */
 
+
 /**
- * Update Data Medis
+ * Handle a transaction that returns a string.
+ * @param {org.hospital.record.CheckIntegrity} transaction
+ * @transaction
+ */
+async function CheckIntegrity(transaction) {
+    var diagnosaPrimer = [];
+    return getAssetRegistry('org.hospital.record.DataMedis').then(function (assetRegistry) {
+        return assetRegistry.getAll().then(function(resourceCollection) {
+                resourceCollection.forEach(function (resource) {
+                    diagnosaPrimer.push(resource.diagnosaPrimer);
+
+                    var factory = getFactory();
+                    var newEvent = factory.newEvent('org.hospital.record', 'DataMedisSent');
+                    newEvent.diagnosaPrimer = diagnosaPrimer;
+                    emit(newEvent);
+                });
+
+        }).catch(function(error){
+            console.log(error);
+        });
+    });
+}
+
+
+/**
+ * Handle a transaction that returns a string.
  * @param {org.hospital.record.UpdateDataMedis} tx
  * @transaction
  */
-
-/**
 async function UpdateDataMedis(tx) {
+    var oldNoRekMedis = tx.sampData.noRekMedis;
+    var oldPasien = tx.sampData.pasien;
+    var oldDokter = tx.sampData.dokter;
+    var oldTglMasuk = tx.sampData.tglMasuk;
+    var oldTglKeluar = tx.sampData.tglKeluar;
+    var oldAlasanMasuk = tx.sampData.alasanMasuk;
+    var oldRujukan = tx.sampData.rujukan;
+    var oldAnamnesis = tx.sampData.anamnesis;
+    var oldPemeriksaanFisik = tx.sampData.pemeriksaanFisik;
+    var oldRiwayatAlergi = tx.sampData.riwayatAlergi;
+    var oldDiagnosaPrimer = tx.sampData.diagnosaPrimer;
+    var oldDiagnosaSekunder = tx.sampData.diagnosaSekunder;
+    var oldTerapiDiRs = tx.sampData.terapiDiRs;
+    var oldTindakan = tx.sampData.tindakan;
+    var oldPrognosaPenyakit = tx.sampData.prognosaPenyakit;
+    var oldAlasanPulang = tx.sampData.alasanPulang;
+    var oldKondisiSaatPulang = tx.sampData.kondisiSaatPulang;
+    var oldRencanaTindakLanjut = tx.sampData.rencanaTindakLanjut;
+    tx.sampData.noRekMedis = tx.newNoRekMedis;
+    tx.sampData.pasien = tx.newPasien;
+    tx.sampData.dokter = tx.newDokter;
+    tx.sampData.tglMasuk = tx.newTglMasuk;
+    tx.sampData.tglKeluar = tx.newTglKeluar;
+    tx.sampData.alasanMasuk = tx.newAlasanMasuk;
+    tx.sampData.rujukan = tx.newRujukan;
+    tx.sampData.anamnesis = tx.newAnamnesis;
+    tx.sampData.pemeriksaanFisik = tx.newPemeriksaanFisik;
+    tx.sampData.riwayatAlergi = tx.newRiwayatAlergi;
+    tx.sampData.diagnosaPrimer = tx.newDiagnosaPrimer;
+    tx.sampData.diagnosaSekunder = tx.newDiagnosaSekunder;
+    tx.sampData.terapiDiRs = tx.newTerapiDiRs;
+    tx.sampData.tindakan = tx.newTindakan;
+    tx.sampData.prognosaPenyakit = tx.newPrognosaPenyakit;
+    tx.sampData.alasanPulang = tx.newAlasanPulang;
+    tx.sampData.kondisiSaatPulang = tx.newKondisiSaatPulang;
+    tx.sampData.rencanaTindakLanjut = tx.newRencanaTindakLanjut;
 
-    tx.datamedis.tglMasuk = tx.newTglMasuk;
-    tx.datamedis.tglKeluar = tx.newTglKeluar;
-    tx.datamedis.alasanMasuk = tx.newAlasanMasuk;
-    tx.datamedis.rujukan = tx.newRujukan;
-    tx.datamedis.anamnesis = tx.newAnamnesis;
-    tx.datamedis.pemeriksaanFisik = tx.newPemeriksaanFisik;
-    tx.datamedis.riwayatAlergi = tx.newRiwayatAlergi;
-    tx.datamedis.diagnosaPrimer = tx.newDiagnosaPrimer;
-    tx.datamedis.diagnosaSekunder = tx.newDiagnosaSekunder;
-    tx.datamedis.terapiDiRs = tx.newTerapiDiRs;
-    tx.datamedis.tindakan = tx.newTindakan;
-    tx.datamedis.prognosaPenyakit = tx.newPrognosaPenyakit;
-    tx.datamedis.alasanPulang = tx.newAlasanPulang;
-    tx.datamedis.kondisiSaatPulang = tx.newKondisiSaatPulang;
-    tx.datamedis.rencanaTindakLanjut = tx.newRencanaTindakLanjut;
-
-    return getAssetRegistry('org.hospital.record.DataMedis')
-        .then(function(assetRegistry){
-            return assetRegistry.update(tx.datamedis);
-        })
-        .catch(function(error){
-            console.log(error);
-        })
+    return getAssetRegistry('org.hospital.record.DataMedis').then(function (assetRegistry) {
+        return assetRegistry.update(tx.sampData);
+    })
+    .catch(function (error) {
+        console.error(error);
+    });
 }
-*/
-
 
 /**
- * Update Data Pasien
+ * Handle a transaction that returns a string.
  * @param {org.hospital.record.UpdateDataPasien} tx
  * @transaction
  */
-
-/**
 async function UpdateDataPasien(tx) {
+    var oldNik = tx.sampData.nik;
+    var oldNamaLengkap = tx.sampData.namaLengkap;
+    var oldTempatTglLahir = tx.sampData.tempatTglLahir;
+    var oldJenisKelamin = tx.sampData.jenisKelamin;
+    var oldUmur = tx.sampData.umur;
+    var oldAlamat = tx.sampData.alamat;
+    var oldStatusPernikahan = tx.sampData.statusPernikahan;
 
-    tx.pasien.namaLengkap = tx.newNamaLengkap;
-    tx.pasien.tempatTglLahir = tx.newTempatTglLahir;
-    tx.pasien.jenisKelamin = tx.newJenisKelamin;
-    tx.pasien.umur = tx.newUmur;
-    tx.pasien.alamat = tx.newAlamat;
-    tx.pasien.statusPernikahan = tx.newStatusPernikahan;
-    tx.pasien.goldar = tx.newGoldar;
+    tx.sampData.nik = tx.newNik;
+    tx.sampData.namaLengkap = tx.newNamaLengkap;
+    tx.sampData.tempatTglLahir = tx.newTempatTglLahir;
+    tx.sampData.jenisKelamin = tx.newJenisKelamin;
+    tx.sampData.umur = tx.newUmur;
+    tx.sampData.alamat = tx.newAlamat;
+    tx.sampData.statusPernikahan = tx.newStatusPernikahan;
 
-    return getAssetRegistry('org.hospital.record.Pasien')
-        .then(function(assetRegistry){
-            return assetRegistry.update(tx.pasien);
-        })
-        .catch(function(error){
-            console.log(error);
-        })
+    return getAssetRegistry('org.hospital.record.Pasien').then(function (assetRegistry) {
+        return assetRegistry.update(tx.sampData);
+    })
+    .catch(function (error) {
+        console.error(error);
+    });
 }
-*/

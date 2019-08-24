@@ -20,7 +20,8 @@ namespace org.hospital.record
 
 
 
-participant Petugas identified by nik {
+participant Petugas identified by idPetugas {
+  o String idPetugas
   o String nik
   o String namaLengkap
   o String tempatTglLahir
@@ -29,7 +30,9 @@ participant Petugas identified by nik {
   o String statusPernikahan
 }
 
-participant Dokter identified by nik {
+
+participant Dokter identified by idDokter {
+  o String idDokter
   o String nik
   o String namaLengkap
   o String tempatTglLahir
@@ -38,7 +41,9 @@ participant Dokter identified by nik {
   o String statusPernikahan
 }
 
-asset Pasien identified by nik {
+
+asset Pasien identified by idPasien {
+  o String idPasien
   o String nik
   o String namaLengkap
   o String tempatTglLahir
@@ -46,10 +51,10 @@ asset Pasien identified by nik {
   o String umur
   o String alamat
   o String statusPernikahan
-  o String goldar
 }
 
-asset DataMedis identified by noRekMedis {
+asset DataMedis identified by idRekMedis {
+  o String idRekMedis
   o String noRekMedis
   --> Pasien pasien
   --> Dokter dokter
@@ -70,9 +75,11 @@ asset DataMedis identified by noRekMedis {
   o String rencanaTindakLanjut
 }
 
-/**
 transaction UpdateDataMedis {
-  --> DataMedis datamedis
+  --> DataMedis sampData
+  o String newNoRekMedis
+  --> Pasien newPasien
+  --> Dokter newDokter
   o String newTglMasuk
   o String newTglKeluar
   o String newAlasanMasuk
@@ -91,25 +98,19 @@ transaction UpdateDataMedis {
 }
 
 transaction UpdateDataPasien {
-  --> Pasien pasien
+  --> Pasien sampData
+  o String newNik
   o String newNamaLengkap
   o String newTempatTglLahir
   o String newJenisKelamin
   o String newUmur
   o String newAlamat
   o String newStatusPernikahan
-  o String newGoldar
 }
 
-asset DataSensor identified by idDataSensor {
-  o String idDataSensor
-  o String idSensor
-  o String brightness
-  o String temperature
-  o String humidity
+transaction CheckIntegrity {
 }
 
-participant Gateway identified by idGateway {
-  o String idGateway
+event DataMedisSent {
+  o String[] diagnosaPrimer
 }
-*/
