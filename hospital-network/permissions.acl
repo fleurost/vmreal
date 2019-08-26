@@ -64,6 +64,44 @@ rule NetworkAdminToDataMedis {
     action: ALLOW
 }
 
+
+
+rule NetworkAdminToUpdateDataMedis {
+    description: "Grant business network Petugas update access to Data Medis"
+    participant: "org.hyperledger.composer.system.NetworkAdmin"
+    operation: CREATE
+    resource: "org.hospital.record.UpdateDataMedis"
+    action: ALLOW
+}
+
+rule NetworkAdminToUpdateDataPasien {
+    description: "Grant business network Petugas update access to Data Pasien"
+    participant: "org.hyperledger.composer.system.NetworkAdmin"
+    operation: CREATE
+    resource: "org.hospital.record.UpdateDataPasien"
+    action: ALLOW
+}
+
+rule NetworkAdminToUpdateDataDokter {
+    description: "Grant business network Petugas update access to Data Medis"
+    participant: "org.hyperledger.composer.system.NetworkAdmin"
+    operation: CREATE
+    resource: "org.hospital.record.UpdateDataDokter"
+    action: ALLOW
+}
+
+rule NetworkAdminToCheckIntegrity {
+    description: "Grant business network Petugas update access to Data Pasien"
+    participant: "org.hyperledger.composer.system.NetworkAdmin"
+    operation: CREATE
+    resource: "org.hospital.record.CheckIntegrity"
+    action: ALLOW
+}
+
+
+
+
+
 rule PetugasToDokter {
     description: "Grant business network Petugas full access to Dokter"
     participant: "org.hospital.record.Petugas"
@@ -105,6 +143,15 @@ rule PetugasToUpdateDataPasien {
     resource: "org.hospital.record.UpdateDataPasien"
     action: ALLOW
 }
+
+rule PetugasToUpdateDataDokter {
+    description: "Grant business network Petugas update access to Data Medis"
+    participant: "org.hospital.record.Petugas"
+    operation: CREATE
+    resource: "org.hospital.record.UpdateDataDokter"
+    action: ALLOW
+}
+
 
 rule PetugasToCheckIntegrity {
     description: "Grant business network Petugas update access to Data Pasien"

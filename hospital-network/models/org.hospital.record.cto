@@ -33,6 +33,7 @@ participant Petugas identified by idPetugas {
 
 participant Dokter identified by idDokter {
   o String idDokter
+  o String jenisDokter
   o String nik
   o String namaLengkap
   o String tempatTglLahir
@@ -69,7 +70,7 @@ asset DataMedis identified by idRekMedis {
   o String diagnosaSekunder
   o String terapiDiRs
   o String tindakan
-  o String prognosaPenyakit
+  o String prognosisPenyakit
   o String alasanPulang
   o String kondisiSaatPulang
   o String rencanaTindakLanjut
@@ -91,7 +92,7 @@ transaction UpdateDataMedis {
   o String newDiagnosaSekunder
   o String newTerapiDiRs
   o String newTindakan
-  o String newPrognosaPenyakit
+  o String newPrognosisPenyakit
   o String newAlasanPulang
   o String newKondisiSaatPulang
   o String newRencanaTindakLanjut
@@ -107,6 +108,18 @@ transaction UpdateDataPasien {
   o String newAlamat
   o String newStatusPernikahan
 }
+
+transaction UpdateDataDokter {
+  --> Dokter sampData
+  o String newJenisDokter
+  o String newNik
+  o String newNamaLengkap
+  o String newTempatTglLahir
+  o String newJenisKelamin
+  o String newAlamat
+  o String newStatusPernikahan
+}
+
 
 transaction CheckIntegrity {
 }

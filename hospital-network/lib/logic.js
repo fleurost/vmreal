@@ -63,7 +63,7 @@ async function UpdateDataMedis(tx) {
     var oldDiagnosaSekunder = tx.sampData.diagnosaSekunder;
     var oldTerapiDiRs = tx.sampData.terapiDiRs;
     var oldTindakan = tx.sampData.tindakan;
-    var oldPrognosaPenyakit = tx.sampData.prognosaPenyakit;
+    var oldPrognosisPenyakit = tx.sampData.prognosisPenyakit;
     var oldAlasanPulang = tx.sampData.alasanPulang;
     var oldKondisiSaatPulang = tx.sampData.kondisiSaatPulang;
     var oldRencanaTindakLanjut = tx.sampData.rencanaTindakLanjut;
@@ -81,7 +81,7 @@ async function UpdateDataMedis(tx) {
     tx.sampData.diagnosaSekunder = tx.newDiagnosaSekunder;
     tx.sampData.terapiDiRs = tx.newTerapiDiRs;
     tx.sampData.tindakan = tx.newTindakan;
-    tx.sampData.prognosaPenyakit = tx.newPrognosaPenyakit;
+    tx.sampData.prognosisPenyakit = tx.newPrognosisPenyakit;
     tx.sampData.alasanPulang = tx.newAlasanPulang;
     tx.sampData.kondisiSaatPulang = tx.newKondisiSaatPulang;
     tx.sampData.rencanaTindakLanjut = tx.newRencanaTindakLanjut;
@@ -123,3 +123,34 @@ async function UpdateDataPasien(tx) {
         console.error(error);
     });
 }
+
+/**
+ * Handle a transaction that returns a string.
+ * @param {org.hospital.record.UpdateDataDokter} tx
+ * @transaction
+ */
+async function UpdateDataDokter(tx) {
+    var oldJenisDokter = tx.sampData.jenisDokter;
+    var oldNik = tx.sampData.nik;
+    var oldNamaLengkap = tx.sampData.namaLengkap;
+    var oldTempatTglLahir = tx.sampData.tempatTglLahir;
+    var oldJenisKelamin = tx.sampData.jenisKelamin;
+    var oldAlamat = tx.sampData.alamat;
+    var oldStatusPernikahan = tx.sampData.statusPernikahan;
+
+    tx.sampData.jenisDokter = tx.newJenisDokter;
+    tx.sampData.nik = tx.newNik;
+    tx.sampData.namaLengkap = tx.newNamaLengkap;
+    tx.sampData.tempatTglLahir = tx.newTempatTglLahir;
+    tx.sampData.jenisKelamin = tx.newJenisKelamin;
+    tx.sampData.alamat = tx.newAlamat;
+    tx.sampData.statusPernikahan = tx.newStatusPernikahan;
+
+    return getAssetRegistry('org.hospital.record.UpdateDataDokter').then(function (assetRegistry) {
+        return assetRegistry.update(tx.sampData);
+    })
+    .catch(function (error) {
+        console.error(error);
+    });
+}
+
